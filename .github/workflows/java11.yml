@@ -1,0 +1,48 @@
+name: 构建 java11
+
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: "0 0 */3 * *"
+
+jobs:
+  build_android:
+    strategy:
+      matrix:
+        arch: [ "aarch32", "aarch64", "x86", "x86_64" ]
+      fail-fast: false
+
+    name: "构建 Java ${{matrix.arch}}"
+    runs-on: ubuntu-20.04
+    steps:
+    - name: 检出代码库
+      uses: actions/checkout@v4.1.1
+    - name: 设置 JDK 11
+      uses: actions/setup-java@v4.1.0
+      with:
+        java-version: 11
+        distribution: zulu
+    - name: 安装构建依赖
+      run: |
+        sudo apt update
+        sudo apt -y install autoconf python unzip zip systemtap-sdt-dev libxtst-dev libasound2-dev libelf-dev libfontconfig1-dev libx11-dev libxext-dev libxrandr-dev libxrender-dev libxtst-dev libxt-dev
+        git clone --depth 1 --branch buildjre11 https://github.com/Vera-Firefly/android-openjdk-build
+    - name: 使用 CI 构建脚本进行构建
+      run: |
+        cd android-openjdk-build
+        bash "ci_build_arch_${{matrix.arch}}.sh"
+    - name: 上传 JDK 构建输出
+      uses: actions/upload-artifact@v4.3.1
+      with:
+        name: "jdk11-${{matrix.arch}}"
+        path: android-openjdk-build/jdk11*.tar.xz
+    - name: 上传 JRE 构建输出
+      uses: actions/upload-artifact@v4.3.1
+      with:
+        name: 'jre11-${{matrix.arch}}'
+        path: android-openjdk-build/jre11*.tar.xz
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        SSH_KEY_PASSWORD: ${{ secrets.SSH_KEY_PASSWORD }}
+        USER_EMAIL: ${{ secrets.USER_EMAIL }}
+        USER_NAME: ${{ secrets.USER_NAME }}
