@@ -3,7 +3,7 @@ name: 构建 java11
 on:
   workflow_dispatch:
   schedule:
-  - cron: "0 0 */3 * *"
+  - cron: "0 0 */1 * *"
 
 jobs:
   build_android:
