@@ -41,7 +41,6 @@ jobs:
       with:
         name: 'jre21-${{matrix.arch}}'
         path: android-openjdk-build/jre21*.tar.xz
-
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         SSH_KEY_PASSWORD: ${{ secrets.SSH_KEY_PASSWORD }}
