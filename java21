@@ -1,4 +1,4 @@
-rname: 构建 java21
+name: 构建 java21
 
 on:
   workflow_dispatch:
