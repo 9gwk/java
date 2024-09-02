@@ -1,0 +1,26 @@
+name: 构建 java21
+
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: "0 0 */1 * *"
+
+    name: "test"
+    runs-on: ubuntu-24.04
+    - name: Test
+      run: |
+        sudo apt update
+        sudo apt -y install systemtap-sdt-dev libxtst-dev libasound2-dev libelf-dev libfontconfig1-dev libx11-dev libxext-dev libxrandr-dev libxrender-dev libxtst-dev libxt-dev
+        git clone https://github.com/bonnyfone/adb-arm
+        cd adb-arm
+        sh adb-download-make.sh
+    - name: 上传 JRE 构建输出
+      uses: actions/upload-artifact@v4.3.3
+      with:
+        name: 'jre21-${{matrix.arch}}'
+        path: android-openjdk-build/jre21*.tar.xz
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        SSH_KEY_PASSWORD: ${{ secrets.SSH_KEY_PASSWORD }}
+        USER_EMAIL: ${{ secrets.USER_EMAIL }}
+        USER_NAME: ${{ secrets.USER_NAME }}
