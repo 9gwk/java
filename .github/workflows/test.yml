@@ -1,8 +1,9 @@
 name: Build arm_adb
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: '0 0 */1 * *'  # 每隔7天的UTC时间0点触发构建
+  - cron: "0 0 */1 * *"
 
 jobs:
   build:
