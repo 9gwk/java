@@ -1,0 +1,38 @@
+name: Build arm_adb every 7 days
+
+# 定义触发条件为每隔7天
+on:
+  schedule:
+    - cron: '0 0 */7 * *'  # 每隔7天的UTC时间0点触发构建
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # 使用Ubuntu作为构建环境
+
+    steps:
+      # 第一步：检查出代码仓库
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # 第二步：安装依赖库
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libtool automake gcc g++ make linux-libc-dev-armhf-cross libc6-armhf-cross libc6-dev-armhf-cross
+
+      # 第三步：构建 OpenSSL
+      - name: Build OpenSSL
+        run: |
+          git clone https://github.com/qhuyduong/openssl-1.0.2l.git
+          cd openssl-1.0.2l
+          ./Configure --prefix=/tmp/openssl os/compiler:gcc
+          make && make install
+          cd -
+
+      # 第四步：构建 arm_adb
+      - name: Build arm_adb
+        run: |
+          git clone https://github.com/qhuyduong/arm_adb.git
+          cd arm_adb
+          ./configure --includedir=/tmp/openssl/include --libdir=/tmp/openssl/lib
+          make
