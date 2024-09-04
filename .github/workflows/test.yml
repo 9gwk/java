@@ -1,9 +1,8 @@
-name: Build arm_adb every 7 days
+name: Build arm_adb
 
-# 定义触发条件为每隔7天
 on:
   schedule:
-    - cron: '0 0 */7 * *'  # 每隔7天的UTC时间0点触发构建
+    - cron: '0 0 */1 * *'  # 每隔7天的UTC时间0点触发构建
 
 jobs:
   build:
