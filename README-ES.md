@@ -32,3 +32,7 @@
 
 > Puedes buscar ayuda en línea o pedirla a un experto.
 
+![java](https://archive.biliimg.com/bfs/archive/428cf21229de58009fa8b81edac6f0066ac6552e.jpg)
+
+![usar una imagen](https://archive.biliimg.com/bfs/archive/7179bf01b6906116b29d90db6c27c5288ce6c954.jpg)
+
