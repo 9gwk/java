@@ -2,8 +2,7 @@
 [![build workflow](https://github.com/9gwk/java/actions/workflows/java17.yml/badge.svg)](https://github.com/9gwk/java/actions/workflows/java17.yml)
 [![build workflow](https://github.com/9gwk/java/actions/workflows/java11.yml/badge.svg)](https://github.com/9gwk/java/actions/workflows/java11.yml)
 [![build workflow](https://github.com/9gwk/java/actions/workflows/java8.yml/badge.svg)](https://github.com/9gwk/java/actions/workflows/java8.yml)
-# 每天自动构建java21,17,11,8
-## 各种架构都有
+## 每天自动构建java21,17,11,8
 - arm64
 - arm
 - x86
