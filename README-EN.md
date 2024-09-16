@@ -16,7 +16,7 @@ Check Java version
 java --version
 ```
 
-Don't miss out, take action, and quickly [download](https://github.com/9gwk/java/actions) it! (bushi)
+[download from here](https://github.com/9gwk/java/actions)
 
 ## Frequently Asked Questions
 
