@@ -4,6 +4,7 @@
 - x86
 - x64
 
+[中文(简体)](https://github.com/9gwk/java/blob/main/README.md) [English](https://github.com/9gwk/java/blob/main/README-EN.md) [Español](https://github.com/9gwk/java/blob/main/README-ES.md) [Français](https://github.com/9gwk/java/blob/main/README-FR.md) اللغة العربية
 [تحميل من هنا](https://github.com/9gwk/java/actions)
 
 ## الأسئلة الشائعة
