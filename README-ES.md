@@ -32,4 +32,3 @@
 
 > Puedes buscar ayuda en línea o pedirla a un experto.
 
-¡Gracias!
