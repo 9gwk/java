@@ -8,7 +8,7 @@
 - x86
 - x64
 
-[English](https://github.com/9gwk/java/blob/main/README-EN.md)
+[English](https://github.com/9gwk/java/blob/main/README-EN.md)[Español](https://github.com/9gwk/java/blob/main/README-ES.md)
 > [!TIP]
 > 有一些部分使用别人的代码，别喷（＞д＜）
 
