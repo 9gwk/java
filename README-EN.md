@@ -44,8 +44,6 @@ java --version
 
 > Look for AI or search online for help.
 
-Translate the following into English:
-
 ![java](https://archive.biliimg.com/bfs/archive/428cf21229de58009fa8b81edac6f0066ac6552e.jpg)
 
 ![Image Usage](https://archive.biliimg.com/bfs/archive/7179bf01b6906116b29d90db6c27c5288ce6c954.jpg)
