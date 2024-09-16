@@ -1,3 +1,4 @@
+[![build workflow](https://github.com/9gwk/java/actions/workflows/build.yml/badge.svg)](https://github.com/9gwk/java/actions/workflows/build.yml)
 # 每天自动构建java21,17,11,8
 ## 各种架构都有
 - arm64
