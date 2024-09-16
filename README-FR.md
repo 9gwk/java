@@ -32,4 +32,3 @@
 
 > Vous pouvez demander de l'aide en ligne ou consulter un expert.
 
-Merci!
