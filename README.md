@@ -8,7 +8,7 @@
 - x86
 - x64
 
-[English](https://github.com/9gwk/java/blob/main/README-EN.md) [Español](https://github.com/9gwk/java/blob/main/README-ES.md) [Français](https://github.com/9gwk/java/blob/main/README-FR.md) 
+[English](https://github.com/9gwk/java/blob/main/README-EN.md) [Español](https://github.com/9gwk/java/blob/main/README-ES.md) [Français](https://github.com/9gwk/java/blob/main/README-FR.md) [اللغة العربية](https://github.com/9gwk/java/blob/main/README-AR.md)
 > [!TIP]
 > 有一些部分使用别人的代码，别喷（＞д＜）
 
