@@ -8,6 +8,11 @@
 > [!TIP]
 > 有一些部分使用别人的代码，别喷（＞д＜）
 
+查看java版本
+'''shell
+java --version
+'''
+
 走过路过不要错过，心动不如行动，快快来[下载](https://github.com/9gwk/java/actions)吧！ (bushi)
 
 订购热线:10086
