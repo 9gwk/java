@@ -8,7 +8,7 @@
 - x86
 - x64
 
-[English](https://github.com/9gwk/java/blob/main/README-EN.md) [Español](https://github.com/9gwk/java/blob/main/README-ES.md) [Français](https://github.com/9gwk/java/blob/main/README-FR.md) [اللغة العربية](https://github.com/9gwk/java/blob/main/README-AR.md)
+中文(简体) [English](https://github.com/9gwk/java/blob/main/README-EN.md) [Español](https://github.com/9gwk/java/blob/main/README-ES.md) [Français](https://github.com/9gwk/java/blob/main/README-FR.md) [اللغة العربية](https://github.com/9gwk/java/blob/main/README-AR.md)
 
 查看java版本
 ```shell
