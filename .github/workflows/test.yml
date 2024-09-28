@@ -1,0 +1,67 @@
+name: Build ADB for Linux Architectures
+
+on:
+  schedule:
+    # 每天 UTC 时间 00:00 运行一次
+    - cron: '0 0 * * *'
+
+jobs:
+  build-adb:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        arch: [arm, arm64, x86, x64]
+
+    steps:
+    # 检出当前代码仓库
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    # 安装依赖，假设我们使用 Android SDK 工具来构建 ADB
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential curl
+
+    # 下载 Android SDK 工具
+    - name: Download Android SDK
+      run: |
+        curl -o sdk-tools-linux.zip https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
+        unzip sdk-tools-linux.zip -d $HOME/android-sdk
+        rm sdk-tools-linux.zip
+        export ANDROID_HOME=$HOME/android-sdk
+        export PATH=$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH
+        yes | sdkmanager --licenses
+        sdkmanager "platform-tools" "platforms;android-30"
+
+    # 设置架构并构建 ADB
+    - name: Build ADB for ${{ matrix.arch }}
+      run: |
+        # 设置目标架构环境变量
+        case ${{ matrix.arch }} in
+          arm)
+            export TARGET_ARCH=arm-linux-androideabi
+            ;;
+          arm64)
+            export TARGET_ARCH=aarch64-linux-android
+            ;;
+          x86)
+            export TARGET_ARCH=i686-linux-android
+            ;;
+          x64)
+            export TARGET_ARCH=x86_64-linux-android
+            ;;
+        esac
+
+        # 在这里添加实际构建 ADB 的命令（例如通过 NDK、CMake 或其他工具）
+        echo "Building ADB for $TARGET_ARCH"
+        # 假设我们有一个构建脚本 build-adb.sh
+        ./build-adb.sh $TARGET_ARCH
+
+    # 将构建的 ADB 产物上传到 GitHub artifacts
+    - name: Upload ADB binary
+      uses: actions/upload-artifact@v2
+      with:
+        name: adb-${{ matrix.arch }}
+        path: ./adb-${{ matrix.arch }}  # 构建完成的 adb 二进制文件路径
